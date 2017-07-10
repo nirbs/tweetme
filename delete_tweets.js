@@ -29,8 +29,8 @@ function result(error, data, response) {
                 tweetId = data[i].id_str;
                 console.log(tweetId);
                 //In case tweet is found, removing it from timeline
-                client.post('statuses/destroy/:id', { id: tweetId }, function (err, data, response) {
-                    if (err) {
+                client.post('statuses/destroy/:id', { id: tweetId }, function (error, data, response) {
+                    if (error) {
                         console.log("Couldn't remove tweets!");
                     } else {
                         console.log("Deleted tweet!");
