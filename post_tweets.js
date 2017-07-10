@@ -1,14 +1,18 @@
-var twit =  require('twit');
+/*
+* Script that uses twit module and posts a tweet
+*/
+
+var twit = require('twit');
 var config = require('./config');
 var client = new twit(config);
 
+//Tweet is hello world
 var tweet = {status: "hello world!"}
 
-
+//Post function
 client.post('statuses/update', tweet, result);
 
-
-
+//callback function that prints the right result after post
 function result(error, data, response) {
     if (error) {
         console.log("Couldn't post the tweet!");
@@ -17,3 +21,12 @@ function result(error, data, response) {
         console.log("Tweet posted!");
     }
 }
+
+/*
+* This is another option only in case of web application, when a user inputs a tweet to post 
+*
+*    post_tweet = function (tweet) {
+*      client.post('statuses/update', {status: tweet}, result);
+*    }
+*/
+
