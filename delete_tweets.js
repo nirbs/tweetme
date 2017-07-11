@@ -18,8 +18,8 @@ var params = {
 
 deleteTweet();
 
-//Setting an iterval for posting every 5 minutes
-setInterval (deleteTweet, 30000)
+//Setting an iterval for posting every 6 minutes
+setInterval (deleteTweet, 320000)
 
 //Get function for current user
 function deleteTweet() {

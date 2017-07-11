@@ -12,7 +12,7 @@ var num = 0;
 postTweet();
 
 //Setting an iterval for posting every 5 minutes
-setInterval (postTweet, 30000)
+setInterval (postTweet, 300000)
 
 //Post function
 function postTweet() {
