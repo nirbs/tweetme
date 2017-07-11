@@ -7,10 +7,20 @@ var config = require('./config');
 var client = new twit(config);
 
 //Tweet is hello world
-var tweet = {status: "hello world!"}
+var tweet;
+var num = 0;
+
+postTweet();
+
+//Setting an iterval for posting every 1 hour
+setInterval (postTweet, 3600000)
 
 //Post function
-client.post('statuses/update', tweet, result);
+function postTweet() {
+    num++;
+    tweet = {status: "hello world" + num + "!"}
+    client.post('statuses/update', tweet, result);
+}
 
 //callback function that prints the right result after post
 function result(error, data, response) {
