@@ -6,14 +6,13 @@ var twit = require('twit');
 var config = require('./config');
 var client = new twit(config);
 
-//Tweet is hello world
 var tweet;
 var num = 0;
 
 postTweet();
 
-//Setting an iterval for posting every 1 hour
-setInterval (postTweet, 3600000)
+//Setting an iterval for posting every 5 minutes
+setInterval (postTweet, 30000)
 
 //Post function
 function postTweet() {

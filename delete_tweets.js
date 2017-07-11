@@ -5,17 +5,28 @@
 var twit = require('twit');
 var config = require('./config');
 var client = new twit(config);
+
 var tweetId;
-var tweetToDelete = "hello world!";
+var tweetToDelete;
+var num = 0;
 
 //User name is 'tweetmecomp' and searching in last 150 tweets
-var options = {
+var params = {
     screen_name: 'tweetmecomp',
     count: 150
 };
 
+deleteTweet();
+
+//Setting an iterval for posting every 5 minutes
+setInterval (deleteTweet, 30000)
+
 //Get function for current user
-client.get('statuses/user_timeline', options, result)
+function deleteTweet() {
+    num++;
+    tweetToDelete = "hello world" + num + "!";
+    client.get('statuses/user_timeline', params, result)
+}
 
 function result(error, data, response) {
     if (error) {
